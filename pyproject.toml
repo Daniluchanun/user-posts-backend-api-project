@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "user-posts-api-project"
+version = "0.1.0"
+description = ""
+authors = ["daniilmagro <d.mahro_fit_3_23_b_d@knute.edu.ua>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+djangorestframework = "^3.15.2"
+mysqlclient = "^2.2.7"
+djangorestframework-simplejwt = "^5.4.0"
+django-filter = "^24.3"
+
+
+[tool.poetry.group.dev.dependencies]
+isort = "^6.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
