@@ -2,7 +2,3 @@
 .venv
 mysql/
 .env
-volumes/
-data/
-/var/lib/mysql
-/docker-entrypoint-initdb.d/
