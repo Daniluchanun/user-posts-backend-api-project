@@ -15,7 +15,6 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'surname', 'age', 'posts', 'created_at', 'updated_at')
 
     def get_posts(self, obj):
-        """Повертає кількість постів замість їх списку"""
         return obj.user.posts.count()
 
     def validate_name(self, value):

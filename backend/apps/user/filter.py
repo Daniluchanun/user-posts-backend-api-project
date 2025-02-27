@@ -6,6 +6,8 @@ from apps.user.models import UserModel
 
 
 class UserFilter(filters.FilterSet):
+    id = filters.NumberFilter(field_name="id")
+    email = filters.CharFilter(field_name="email", lookup_expr="icontains")
     name = filters.CharFilter(field_name="profile__name", lookup_expr="icontains")
     surname = filters.CharFilter(field_name="profile__surname", lookup_expr="icontains")
     age = filters.NumberFilter(field_name="profile__age")
@@ -15,8 +17,7 @@ class UserFilter(filters.FilterSet):
 
     class Meta:
         model = UserModel
-        fields = ['name', 'surname', 'age', 'age_min', 'age_max', 'posts_count']
+        fields = ['id', 'email', 'name', 'surname', 'age', 'age_min', 'age_max', 'posts_count']
 
     def filter_posts_count(self, queryset, name, value):
-        """Фільтр для кількості постів"""
         return queryset.annotate(posts_count=Count('posts')).filter(posts_count=value)
